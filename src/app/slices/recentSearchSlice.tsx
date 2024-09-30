@@ -21,7 +21,7 @@ const recentSearchSlice = createSlice({
   initialState,
   reducers: {
     addSearch: (state, action: PayloadAction<RecentSearch>) => {
-      state.searches.push(action.payload);
+      state.searches.unshift(action.payload);
     },
   },
 });

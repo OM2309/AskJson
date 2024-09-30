@@ -1,8 +1,9 @@
-// RootLayout.tsx (Server Component)
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import ClientProvider from "./ClientProvider";
+import Header from "./common/Header";
+import { Toaster } from "@/components/ui/toaster";
 
 // Define your fonts
 const geistSans = localFont({
@@ -33,7 +34,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ClientProvider>{children}</ClientProvider>
+        <ClientProvider>
+          <Header />
+          {children}
+          <Toaster />
+        </ClientProvider>
       </body>
     </html>
   );
